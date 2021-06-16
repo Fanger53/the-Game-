@@ -1,3 +1,4 @@
+import Player from './entities/player';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';
 import sprExplosion from '../assets/img/sprExplosion.png';
@@ -45,6 +46,14 @@ this.load.audio('sndLaser', sndLaser);
   }
 
   create() {
+
+    this.player = new Player(
+      this,
+      this.game.config.width * 0.5,
+      this.game.config.height * 0.5,
+      "sprPlayer"
+    );
+
     this.anims.create({
       key: "sprEnemy0",
       frames: this.anims.generateFrameNumbers("sprEnemy0"),
@@ -80,5 +89,29 @@ this.load.audio('sndLaser', sndLaser);
       ],
       laser: this.sound.add("sndLaser")
     };
+
+    this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+    this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+    this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+  }
+
+  update() {
+    this.player.update();
+
+    if (this.keyW.isDown) {
+      this.player.moveUp();
+    }
+    else if (this.keyS.isDown) {
+      this.player.moveDown();
+    }
+
+    if (this.keyA.isDown) {
+      this.player.moveLeft();
+    }
+    else if (this.keyD.isDown) {
+      this.player.moveRight();
+    }
   }
 }
