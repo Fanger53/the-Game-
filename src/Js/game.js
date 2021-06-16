@@ -1,6 +1,8 @@
 import '../assets/style.scss';
 import Phaser from 'phaser';
-
+import SceneStart from './sceneStart';
+import SceneMain from './sceneMain';
+import SceneLast from './sceneLast';
 
 const config = {
   type: Phaser.AUTO,
