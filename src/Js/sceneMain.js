@@ -54,8 +54,10 @@ this.load.audio('sndLaser', sndLaser);
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.6,
-      "sprPlayer"
+      "sprPlayer",
     );
+
+    this.player.setScale(2);
 
     this.anims.create({
       key: "sprEnemy0",
@@ -142,6 +144,34 @@ this.load.audio('sndLaser', sndLaser);
       loop: true
     });
 
+    this.physics.add.collider(this.playerLasers, this.enemies, function(playerLaser, enemy) {
+      if (enemy) {
+        if (enemy.onDestroy !== undefined) {
+          enemy.onDestroy();
+        }
+        enemy.explode(true);
+        playerLaser.destroy();
+      }
+    });
+
+    this.physics.add.overlap(this.player, this.enemies, function(player, enemy) {
+      if (!player.getData("isDead") &&
+          !enemy.getData("isDead")) {
+        player.explode(false);
+        player.onDestroy();
+        enemy.explode(true);
+      }
+    });
+
+    this.physics.add.overlap(this.player, this.enemyLasers, function(player, laser) {
+      if (!player.getData("isDead") &&
+          !laser.getData("isDead")) {
+        player.explode(false);
+        player.onDestroy();
+        laser.destroy();
+      }
+    });
+
   }
 
   update() {
@@ -160,6 +190,63 @@ this.load.audio('sndLaser', sndLaser);
     else if (this.keyD.isDown) {
       this.player.moveRight();
     }
+
+    if (this.keySpace.isDown) {
+      this.player.setData("isShooting", true);
+    }
+    else {
+      this.player.setData("timerShootTick", this.player.getData("timerShootDelay") - 1);
+      this.player.setData("isShooting", false);
+    }
+
+    for (var i = 0; i < this.enemies.getChildren().length; i++) {
+      var enemy = this.enemies.getChildren()[i];
+
+      if (enemy.x < -enemy.displayWidth ||
+        enemy.x > this.game.config.width + enemy.displayWidth ||
+        enemy.y < -enemy.displayHeight * 4 ||
+        enemy.y > this.game.config.height + enemy.displayHeight) {
+    
+        if (enemy) {
+          if (enemy.onDestroy !== undefined) {
+            enemy.onDestroy();
+          }
+    
+          enemy.destroy();
+        }
+    
+    }
+
+      enemy.update();
+    }
+
+    for (var i = 0; i < this.enemyLasers.getChildren().length; i++) {
+      var laser = this.enemyLasers.getChildren()[i];
+      laser.update();
+
+      if (laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight) {
+        if (laser) {
+          laser.destroy();
+        }
+      }
+    }
+
+    for (var i = 0; i < this.playerLasers.getChildren().length; i++) {
+      var laser = this.playerLasers.getChildren()[i];
+      laser.update();
+
+      if (laser.x < -laser.displayWidth ||
+        laser.x > this.game.config.width + laser.displayWidth ||
+        laser.y < -laser.displayHeight * 4 ||
+        laser.y > this.game.config.height + laser.displayHeight) {
+        if (laser) {
+          laser.destroy();
+        }
+      }
+    }
   }
 
   getEnemiesByType(type) {
@@ -172,4 +259,6 @@ this.load.audio('sndLaser', sndLaser);
     }
     return arr;
   }
+
+
 }
