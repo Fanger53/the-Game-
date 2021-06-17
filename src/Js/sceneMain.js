@@ -2,6 +2,7 @@ import Player from './entities/player';
 import ChaserShip from './entities/enemy1';
 import GunShip from './entities/enemy2';
 import CarrierShip from './entities/enemy3';
+import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';
 import sprExplosion from '../assets/img/sprExplosion.png';
@@ -50,6 +51,20 @@ this.load.audio('sndLaser', sndLaser);
 
   create() {
 
+    this.sfx = {
+      explosions: [
+        this.sound.add("sndExplode0"),
+        this.sound.add("sndExplode1")
+      ],
+      laser: this.sound.add("sndLaser")
+    };
+
+    this.backgrounds = [];
+      for (var i = 0; i < 5; i++) { // create five scrolling backgrounds
+        var bg = new ScrollingBackground(this, "sprBg0", i * 10);
+        this.backgrounds.push(bg);
+      }
+
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
@@ -87,13 +102,6 @@ this.load.audio('sndLaser', sndLaser);
       repeat: -1
     });
 
-    this.sfx = {
-      explosions: [
-        this.sound.add("sndExplode0"),
-        this.sound.add("sndExplode1")
-      ],
-      laser: this.sound.add("sndLaser")
-    };
 
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
@@ -247,6 +255,8 @@ this.load.audio('sndLaser', sndLaser);
         }
       }
     }
+
+    
   }
 
   getEnemiesByType(type) {
