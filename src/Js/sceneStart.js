@@ -1,3 +1,4 @@
+import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';
 import sprBtnPlay from '../assets/img/sprBtnPlay.png';
@@ -29,6 +30,66 @@ export default class SceneStart extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start("SceneMain");
+    this.sfx = {
+      btnOver: this.sound.add("sndBtnOver"),
+      btnDown: this.sound.add("sndBtnDown")
+    };
+
+    this.btnPlay = this.add.sprite(
+      this.game.config.width * 0.5,
+      this.game.config.height * 0.5,
+      "sprBtnPlay"
+    );
+
+    this.btnPlay.setInteractive();
+
+    this.btnPlay.on("pointerover", () => {
+      this.btnPlay.setTexture("sprBtnPlayHover"); // set the button texture to sprBtnPlayHover
+      this.sfx.btnOver.play(); // play the button over sound
+    }, this);
+
+    this.btnPlay.on("pointerout", function () {
+      this.setTexture('sprBtnPlay');
+    });
+
+    this.btnPlay.on("pointerdown", () => {
+      this.btnPlay.setTexture("sprBtnPlayDown");
+      this.sfx.btnDown.play();
+    }, this);
+
+    this.btnPlay.on("pointerup", function() {
+      this.btnPlay.setTexture("sprBtnPlay");
+      this.scene.start("SceneMain");
+    }, this);
+
+    this.title = this.add.text(this.game.config.width * 0.5, 128, "SPACE WARS", {
+      fontFamily: 'monospace',
+      fontSize: 48,
+      fontStyle: 'bold',
+      color: '#ffffff',
+      align: 'center'
+    });
+
+    this.title.setOrigin(0.5);
+
+    this.title2 = this.add.text(this.game.config.width * 0.5, 170, "The Game", {
+      fontFamily: 'monospace',
+      fontSize: 48,
+      fontStyle: 'bold',
+      color: '#900C3F',
+      align: 'center'
+    });
+
+    this.title2.setOrigin(0.5)
+
+    this.backgrounds = [];
+    for (var i = 0; i < 5; i++) {
+      var keys = ["sprBg0", "sprBg1"];
+      var key = keys[Phaser.Math.Between(0, keys.length - 1)];
+      var bg = new ScrollingBackground(this, key, i * 10);
+      this.backgrounds.push(bg);
+    }
+
   }
+
 }
