@@ -21,7 +21,7 @@ export default class SceneLast extends Phaser.Scene {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
-      color: '#ffffff',
+      color: '#670D52',
       align: 'center'
     });
     this.title.setOrigin(0.5);
@@ -57,5 +57,18 @@ export default class SceneLast extends Phaser.Scene {
       this.btnRestart.setTexture("sprBtnRestart");
       this.scene.start("SceneMain");
     }, this);
+
+    this.subtitle = this.add.text(this.game.config.width * 0.29, 320, "Score Board", {
+      fontFamily: 'monospace',
+      fontSize: 35,
+      fontStyle: 'bold',
+      color: '#670D52',
+      align: 'center'
+    }).setInteractive({ useHandCursor: true })
+    .on('pointerdown', () => {
+      this.scene.start('SceneScore');
+    });
+
+    
   }
 }

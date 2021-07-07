@@ -3,11 +3,12 @@ import Phaser from 'phaser';
 import SceneStart from './sceneStart';
 import SceneMain from './sceneMain';
 import SceneLast from './sceneLast';
+import SceneScore from './sceneScore';
 
 const config = {
   type: Phaser.AUTO,
   width: 480,
-  height: 600,
+  height: 550,
   parent: 'board-game',
   physics: {
     default: "arcade",
@@ -17,7 +18,8 @@ const config = {
   },
   scene: [SceneStart,
     SceneMain,
-    SceneLast],
+    SceneLast,
+    SceneScore],
   pixelArt: true,
   roundPixels: true
 };

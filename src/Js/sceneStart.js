@@ -1,3 +1,4 @@
+import api from './score';
 import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';
@@ -30,6 +31,8 @@ export default class SceneStart extends Phaser.Scene {
   }
 
   create() {
+    
+
     this.sfx = {
       btnOver: this.sound.add("sndBtnOver"),
       btnDown: this.sound.add("sndBtnDown")
@@ -89,6 +92,9 @@ export default class SceneStart extends Phaser.Scene {
       var bg = new ScrollingBackground(this, key, i * 10);
       this.backgrounds.push(bg);
     }
+
+    const playerNameInput = document.querySelector('#playerName');
+    playerNameInput.classList.add('hide');
 
   }
 
