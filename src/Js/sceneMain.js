@@ -16,12 +16,15 @@ import sndExplode0 from '../assets/sounds/sndExplode0.wav';
 import sndExplode1 from '../assets/sounds/sndExplode1.wav';
 import sndLaser from '../assets/sounds/sndLaser.wav';
 
+let score = 0;
+let scoreText;
 
 export default class SceneMain extends Phaser.Scene {
   constructor() {
     super({ key: "SceneMain" });
   }
 
+  
   preload() {
     this.load.image('sprBg0', sprBg0);
     this.load.image('sprBg1', sprBg1.png);
@@ -73,10 +76,12 @@ this.load.audio('sndLaser', sndLaser);
     );
 
     this.player.setScale(2);
-    this.livesText = this.add.text(16, 16, 'Lives: 3', { fontSize: '32px', fill: '#FFF' });
 
-    this.scoreText = this.add.text(306, 16, 'Score: 0', { fontSize: '32px', fill: '#FFF' });
-
+    scoreText = this.add.text(16, 16, ' ', {
+      fontSize: '32px',
+      fill: '#fff',
+    });
+    
 
     this.anims.create({
       key: "sprEnemy0",
@@ -123,11 +128,6 @@ this.load.audio('sndLaser', sndLaser);
         var enemy = null;
 
     if (Phaser.Math.Between(0, 10) >= 3) {
-      // enemy = new GunShip(
-      //   this,
-      //   Phaser.Math.Between(0, this.game.config.width),
-      //   0
-      // );
       enemy = new CarrierShip(
         this,
         Phaser.Math.Between(0, this.game.config.width),
@@ -154,13 +154,21 @@ this.load.audio('sndLaser', sndLaser);
       if (enemy) {
         if (enemy.onDestroy !== undefined) {
           enemy.onDestroy();
-          this.player.score += 200;
         }
         enemy.explode(true);
         playerLaser.destroy();
+        if (enemy.getData('type') === 'ChaserShip') {
+          
+          score += 200;
+          
+        } else {
+          
+          score += 100;
+        }
       }
-    });
 
+    });
+    
     this.physics.add.overlap(this.player, this.enemies, function(player, enemy) {
       if (!player.getData("isDead") &&
           !enemy.getData("isDead")) {
@@ -169,7 +177,7 @@ this.load.audio('sndLaser', sndLaser);
         enemy.explode(true);
       }
     });
-
+    
     this.physics.add.overlap(this.player, this.enemyLasers, function(player, laser) {
       if (!player.getData("isDead") &&
           !laser.getData("isDead")) {
@@ -182,6 +190,7 @@ this.load.audio('sndLaser', sndLaser);
   }
 
   update() {
+    scoreText.setText(`Score: ${score}`);
     if (!this.player.getData("isDead")) {
       this.player.update();
       if (this.keyW.isDown) {
@@ -204,9 +213,9 @@ this.load.audio('sndLaser', sndLaser);
         this.player.setData("timerShootTick", this.player.getData("timerShootDelay") - 1);
         this.player.setData("isShooting", false);
       }
-      this.scoreText.setText(`Score: ${this.player.score}`);
+      
     }
-
+    
     for (var i = 0; i < this.enemies.getChildren().length; i++) {
       var enemy = this.enemies.getChildren()[i];
 
