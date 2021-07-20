@@ -1,5 +1,4 @@
 import {score} from './sceneMain';
-import {name} from './sceneStart';
 import {SubmitScore} from './post';
 import sndBtnOver from '../assets/sounds/sndBtnOver.wav';
 import sndBtnDown from '../assets/sounds/sndBtnDown.wav';
@@ -39,16 +38,9 @@ export default class SceneLast extends Phaser.Scene {
     playerName.classList.remove('hide');
     const btn = document.getElementById('btn');
     btn.classList.remove('hide');
-    
-    // const name = () =>{
-    //   const nameValue = playerName.value;
-    //   return nameValue;
-    // }
-    // btn.onclick = () => (name, score);
+    const name = document.querySelector('[data-name]');
+    btn.onclick = () =>  SubmitScore.send(name.value, score).then(this.scene.start('SceneScore'));
 
-    btn.onclick = () =>  SubmitScore.send('leo', 700).then(this.scene.start('SceneScore'));
-
-    console.log(SubmitScore.send(name, score));
 
     this.score = this.add.text(this.game.config.width * 0.5, 105, ' ', {
       fontFamily: 'monospace',

@@ -21,29 +21,22 @@ export default class SceneScore extends Phaser.Scene {
 
     allScores = GetScore.all();
     console.log(allScores);
-    // const top = await this.getTopScores();
-    
 
-    // let gap = 0;
-    // top.forEach((item) => {
-    //   this.add.text(530, 170 + gap, `${item.user} -------------  ${item.score}`, {
-    //     fontSize: '17px',
-    //     fill: '#f8e578',
-    //     width: 400,
-    //     fontFamily: '"Train One"',
-    //     padding: {
-    //       left: 10,
-    //       right: 10,
-    //       top: 10,
-    //       bottom: 10,
-    //     },
-    //   });
-    //   gap += 50;
-    // });
+    const div = document.createElement('div');
+    div.innerHTML = `<button type='submit' id='backtomenu'
+    style='background-color: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 0.5rem;
+    margin-left: 3.5rem;
+    text-transform: uppercase;
+    font-weight: bold;'>
+    Back To Menu</button>`;
+    this.add.dom(this.game.config.width * 0.45, this.game.config.height * 0.8, div, 'background-color: transparent; width: 220px; height: 0; font: 48px Arial');
 
-    
 
-    this.scoreTitle = this.add.text(this.game.config.width * 0.5, 300, "SPACE WARS", {
+    this.scoreTitle = this.add.text(this.game.config.width * 0.5, 40, "Top Scores", {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
@@ -53,7 +46,7 @@ export default class SceneScore extends Phaser.Scene {
     
     this.scoreTitle.setOrigin(0.5);
 
-    this.subtitle = this.add.text(this.game.config.width * 0.29, 320, "Start a New Game", {
+    this.subtitle = this.add.text(this.game.config.width * 0.20, 420, "Start a New Game", {
       fontFamily: 'monospace',
       fontSize: 35,
       fontStyle: 'bold',
@@ -65,20 +58,22 @@ export default class SceneScore extends Phaser.Scene {
     });
   }
 
-  // async getTopScores() {
-  //   const { sys: { game: { globals: { api: Api } } } } = this;
-  //   const scores = await api.getScores();
-  //   const array = [];
-  //   scores.forEach((item) => array.push({ user: item.user, score: item.score }));
-  //   const topScores = array.sort(
-  //     (a, b) => ((a.score) > (b.score) ? -1 : 1),
-  //   ).slice(0, 5);
-
-  //   return topScores;
-  // }
-
-  // async deleteLoadingText(scores) {
-  //   const topScores = await scores;
-  //   if (topScores) { this.loading.destroy(); }
-  // }
+  update() {
+    allScores.then((response) => {
+      const results = response.result;
+      // eslint-disable-next-line no-nested-ternary
+      results.sort((a, b) => ((a.score < b.score) ? 1 : ((b.score < a.score) ? -1 : 0)));
+      let height = 0.3;
+      results.slice(0, 5).forEach((result) => {
+        this.add.text(this.game.config.width * 0.3, this.game.config.height * height, `${result.user}: ${result.score}`, {
+          fontFamily: 'monospace',
+          fontSize: 32,
+          fontStyle: 'bold',
+          color: '#ffffff',
+          align: 'center',
+        });
+        height += 0.1;
+      });
+    });
+  }
 }

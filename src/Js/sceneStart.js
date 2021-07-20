@@ -11,7 +11,6 @@ import sprBtnRestartDown from '../assets/img/sprBtnRestartDown.png';
 import sndBtnOver from '../assets/sounds/sndBtnOver.wav';
 import sndBtnDown from '../assets/sounds/sndBtnDown.wav';
 
-const name = 'leo';
 
 export default class SceneStart extends Phaser.Scene {
   constructor() {
@@ -99,5 +98,3 @@ export default class SceneStart extends Phaser.Scene {
 
 
 }
-
-export {name};
