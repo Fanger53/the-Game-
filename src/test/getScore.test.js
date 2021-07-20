@@ -2,12 +2,12 @@ import { GetScore } from '../Js/get';
 
 let results = true;
 global.fetch = jest.fn(() => Promise.resolve({
-  json: () => Promise.resolve({ user: 'stanley', score: 100 }),
+  json: () => Promise.resolve({ user: 'Leo', score: 100 }),
 }));
 
 beforeAll(() => {
   global.fetch = () => Promise.resolve({
-    json: () => Promise.resolve({ user: 'stanley', score: 100 }),
+    json: () => Promise.resolve({ user: 'Leo', score: 100 }),
   });
 });
 
