@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+/* eslint-disable no-undef */
 import { GetScore } from './get';
 
 let allScores;

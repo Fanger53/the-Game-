@@ -1,6 +1,6 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-plusplus */
 /* eslint-disable vars-on-top */
-import Phaser from 'phaser';
 import Player from './entities/player';
 import ChaserShip from './entities/enemy1';
 import CarrierShip from './entities/enemy3';
@@ -184,20 +184,17 @@ export default class SceneMain extends Phaser.Scene {
       this.player.update();
       if (this.keyW.isDown) {
         this.player.moveUp();
-      }
-      else if (this.keyS.isDown) {
+      } else if (this.keyS.isDown) {
         this.player.moveDown();
       }
       if (this.keyA.isDown) {
         this.player.moveLeft();
-      }
-      else if (this.keyD.isDown) {
+      } else if (this.keyD.isDown) {
         this.player.moveRight();
       }
       if (this.keySpace.isDown) {
         this.player.setData('isShooting', true);
-      }
-      else {
+      } else {
         this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
         this.player.setData('isShooting', false);
       }

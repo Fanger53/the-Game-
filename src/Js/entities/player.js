@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable max-classes-per-file */
 import Entity from './entities';
 

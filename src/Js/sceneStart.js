@@ -1,5 +1,5 @@
+/* eslint-disable no-undef */
 /* eslint-disable vars-on-top */
-import Phaser from 'phaser';
 import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';

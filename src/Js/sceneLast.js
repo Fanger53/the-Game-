@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+/* eslint-disable no-undef */
 import { score } from './sceneMain';
 import { SubmitScore } from './post';
 import sndBtnOver from '../assets/sounds/sndBtnOver.wav';
