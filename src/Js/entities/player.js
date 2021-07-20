@@ -1,5 +1,4 @@
 /* eslint-disable max-classes-per-file */
-import Phaser from 'phaser';
 import Entity from './entities';
 
 class PlayerLaser extends Entity {
