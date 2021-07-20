@@ -11,18 +11,18 @@ const config = {
   height: 550,
   parent: 'board-game',
   physics: {
-    default: "arcade",
+    default: 'arcade',
     arcade: {
-      gravity: { x: 0, y: 0 }
-    }
+      gravity: { x: 0, y: 0 },
+    },
   },
   scene: [SceneStart,
     SceneMain,
     SceneLast,
     SceneScore],
   pixelArt: true,
-  roundPixels: true
+  roundPixels: true,
 };
 
+// eslint-disable-next-line no-unused-vars
 const game = new Phaser.Game(config);
-

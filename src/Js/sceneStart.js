@@ -1,5 +1,5 @@
 /* eslint-disable vars-on-top */
-
+import Phaser from 'phaser';
 import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';
@@ -11,7 +11,6 @@ import sprBtnRestartHover from '../assets/img/sprBtnRestartHover.png';
 import sprBtnRestartDown from '../assets/img/sprBtnRestartDown.png';
 import sndBtnOver from '../assets/sounds/sndBtnOver.wav';
 import sndBtnDown from '../assets/sounds/sndBtnDown.wav';
-
 
 export default class SceneStart extends Phaser.Scene {
   constructor() {
@@ -33,10 +32,9 @@ export default class SceneStart extends Phaser.Scene {
   }
 
   create() {
-
     this.sfx = {
       btnOver: this.sound.add('sndBtnOver'),
-      btnDown: this.sound.add('sndBtnDown')
+      btnDown: this.sound.add('sndBtnDown'),
     };
 
     this.btnPlay = this.add.sprite(
@@ -81,7 +79,7 @@ export default class SceneStart extends Phaser.Scene {
       fontSize: 48,
       fontStyle: 'bold',
       color: '#900C3F',
-      align: 'center'
+      align: 'center',
     });
 
     this.title2.setOrigin(0.5);
