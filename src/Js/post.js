@@ -19,4 +19,5 @@ const SubmitScore = (() => {
   };
 })();
 
-export {SubmitScore};
+// eslint-disable-next-line import/prefer-default-export
+export { SubmitScore };
