@@ -1,6 +1,5 @@
-import '../assets/style.scss';
-/* eslint-disable no-unresolved */
 import Phaser from 'phaser';
+import '../assets/style.scss';
 import SceneStart from './sceneStart';
 import SceneMain from './sceneMain';
 import SceneLast from './sceneLast';
