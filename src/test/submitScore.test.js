@@ -1,4 +1,4 @@
-import {SubmitScore} from '../Js/post';
+import { SubmitScore } from '../Js/post';
 
 global.fetch = jest.fn(() => Promise.resolve({
   json: () => Promise.resolve({ scores: { user: 'stanley', score: 17 } }),

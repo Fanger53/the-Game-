@@ -1,4 +1,4 @@
-import {GetScore} from '../Js/get';
+import { GetScore } from '../Js/get';
 
 let results = true;
 global.fetch = jest.fn(() => Promise.resolve({

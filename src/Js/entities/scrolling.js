@@ -1,3 +1,6 @@
+/* eslint-disable no-plusplus */
+import Phaser from 'phaser';
+
 export default class ScrollingBackground {
   constructor(scene, key, velocityY) {
     this.scene = scene;
@@ -10,12 +13,13 @@ export default class ScrollingBackground {
   }
 
   createLayers() {
-    for (var i = 0; i < 2; i++) {
-      // creating two backgrounds will allow a continuous flow giving the illusion that they are moving.
-      var layer = this.scene.add.sprite(0, 0, this.key);
+    for (let i = 0; i < 2; i++) {
+      // creating two backgrounds will allow a continuous
+      // flow giving the illusion that they are moving.
+      const layer = this.scene.add.sprite(0, 0, this.key);
       layer.y = (layer.displayHeight * i);
-      var flipX = Phaser.Math.Between(0, 10) >= 5 ? -1 : 1;
-      var flipY = Phaser.Math.Between(0, 10) >= 5 ? -1 : 1;
+      const flipX = Phaser.Math.Between(0, 10) >= 5 ? -1 : 1;
+      const flipY = Phaser.Math.Between(0, 10) >= 5 ? -1 : 1;
       layer.setScale(flipX * 2, flipY * 2);
       layer.setDepth(-5 - (i - 1));
       this.scene.physics.world.enableBody(layer, 0);
