@@ -23,8 +23,9 @@ export default class SceneLast extends Phaser.Scene {
     this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.S);
     this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.A);
     this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.D);
+    this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-    this.title = this.add.text(this.game.config.width * 0.5, 90, "GAME OVER", {
+    this.title = this.add.text(this.game.config.width * 0.5, 90, 'GAME OVER', {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
@@ -39,7 +40,7 @@ export default class SceneLast extends Phaser.Scene {
     const btn = document.getElementById('btn');
     btn.classList.remove('hide');
     const name = document.querySelector('[data-name]');
-    btn.onclick = () =>  SubmitScore.send(name.value, score).then(this.scene.start('SceneScore'));
+    btn.onclick = () => SubmitScore.send(name.value, score).then(this.scene.start('SceneScore'));
 
 
     this.score = this.add.text(this.game.config.width * 0.5, 105, ' ', {
@@ -55,8 +56,8 @@ export default class SceneLast extends Phaser.Scene {
 
 
     this.sfx = {
-      btnOver: this.sound.add("sndBtnOver"),
-      btnDown: this.sound.add("sndBtnDown")
+      btnOver: this.sound.add('sndBtnOver'),
+      btnDown: this.sound.add('sndBtnDown'),
     };
 
     this.subtitle = this.add.text(this.game.config.width * 0.29, 410, "Score Board", {
