@@ -1,5 +1,6 @@
-import {score} from './sceneMain';
-import {SubmitScore} from './post';
+import Phaser from 'phaser';
+import { score } from './sceneMain';
+import { SubmitScore } from './post';
 import sndBtnOver from '../assets/sounds/sndBtnOver.wav';
 import sndBtnDown from '../assets/sounds/sndBtnDown.wav';
 import sprBtnRestart from '../assets/img/sprBtnRestart.png';
@@ -7,7 +8,7 @@ import sprBtnRestartHover from '../assets/img/sprBtnRestartHover.png';
 
 export default class SceneLast extends Phaser.Scene {
   constructor() {
-    super({ key: "SceneLast" });
+    super({ key: 'SceneLast' });
   }
 
   preload() {
@@ -30,7 +31,7 @@ export default class SceneLast extends Phaser.Scene {
       fontSize: 48,
       fontStyle: 'bold',
       color: '#670D52',
-      align: 'center'
+      align: 'center',
     });
     this.title.setOrigin(0.5);
 
@@ -41,7 +42,6 @@ export default class SceneLast extends Phaser.Scene {
     btn.classList.remove('hide');
     const name = document.querySelector('[data-name]');
     btn.onclick = () => SubmitScore.send(name.value, score).then(this.scene.start('SceneScore'));
-
 
     this.score = this.add.text(this.game.config.width * 0.5, 105, ' ', {
       fontFamily: 'monospace',
@@ -54,51 +54,49 @@ export default class SceneLast extends Phaser.Scene {
     this.score.setOrigin(0.5, -1);
     this.score.setText(`SCORE: ${score}`);
 
-
     this.sfx = {
       btnOver: this.sound.add('sndBtnOver'),
       btnDown: this.sound.add('sndBtnDown'),
     };
 
-    this.subtitle = this.add.text(this.game.config.width * 0.29, 410, "Score Board", {
+    this.subtitle = this.add.text(this.game.config.width * 0.29, 410, 'Score Board', {
       fontFamily: 'monospace',
       fontSize: 35,
       fontStyle: 'bold',
       color: '#670D52',
-      align: 'center'
+      align: 'center',
     }).setInteractive({ useHandCursor: true })
-    .on('pointerdown', () => {
-      this.scene.start('SceneScore');
-    });
+      .on('pointerdown', () => {
+        this.scene.start('SceneScore');
+      });
 
     this.btnRestart = this.add.sprite(
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      "sprBtnRestart"
+      'sprBtnRestart',
     );
 
     this.btnRestart.setInteractive();
 
-    this.btnRestart.on("pointerover", function() {
-      this.btnRestart.setTexture("sprBtnRestartHover"); // set the button texture to sprBtnPlayHover
+    this.btnRestart.on('pointerover', () => {
+      this.btnRestart.setTexture('sprBtnRestartHover'); // set the button texture to sprBtnPlayHover
       this.sfx.btnOver.play(); // play the button over sound
     }, this);
 
-    this.btnRestart.on("pointerout", function() {
-      this.setTexture("sprBtnRestart");
+    this.btnRestart.on('pointerout', () => {
+      this.setTexture('sprBtnRestart');
     });
 
-    this.btnRestart.on("pointerdown", function() {
-      this.btnRestart.setTexture("sprBtnRestartDown");
+    this.btnRestart.on('pointerdown', () => {
+      this.btnRestart.setTexture('sprBtnRestartDown');
       this.sfx.btnDown.play();
     }, this);
 
-    this.btnRestart.on("pointerup", function() {
-      this.btnRestart.setTexture("sprBtnRestart");
+    this.btnRestart.on('pointerup', () => {
+      this.btnRestart.setTexture('sprBtnRestart');
       this.scene.start(window.location.reload());
     }, this);
 
     this.btnRestart.setOrigin(0.5, -1);
-    
   }
 }
