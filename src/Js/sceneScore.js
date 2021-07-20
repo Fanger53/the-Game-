@@ -1,10 +1,11 @@
-import {GetScore} from './get';
+import Phaser from 'phaser';
+import { GetScore } from './get';
 
 let allScores;
 
 export default class SceneScore extends Phaser.Scene {
   constructor() {
-    super({ key: "SceneScore" });
+    super({ key: 'SceneScore' });
   }
 
   async create() {
@@ -20,7 +21,6 @@ export default class SceneScore extends Phaser.Scene {
     this.loading.setText('Loading top scores ...');
 
     allScores = GetScore.all();
-    console.log(allScores);
 
     const div = document.createElement('div');
     div.innerHTML = `<button type='submit' id='backtomenu'
@@ -35,27 +35,25 @@ export default class SceneScore extends Phaser.Scene {
     Back To Menu</button>`;
     this.add.dom(this.game.config.width * 0.45, this.game.config.height * 0.8, div, 'background-color: transparent; width: 220px; height: 0; font: 48px Arial');
 
-
-    this.scoreTitle = this.add.text(this.game.config.width * 0.5, 40, "Top Scores", {
+    this.scoreTitle = this.add.text(this.game.config.width * 0.5, 40, 'Top Scores', {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
       color: '#ffffff',
-      align: 'center'
+      align: 'center',
     });
-    
     this.scoreTitle.setOrigin(0.5);
 
-    this.subtitle = this.add.text(this.game.config.width * 0.20, 420, "Start a New Game", {
+    this.subtitle = this.add.text(this.game.config.width * 0.20, 420, 'Start a New Game', {
       fontFamily: 'monospace',
       fontSize: 35,
       fontStyle: 'bold',
       color: '#670D52',
-      align: 'center'
+      align: 'center',
     }).setInteractive({ useHandCursor: true })
-    .on('pointerdown', () => {
-      this.scene.start(window.location.reload());
-    });
+      .on('pointerdown', () => {
+        this.scene.start(window.location.reload());
+      });
   }
 
   update() {
