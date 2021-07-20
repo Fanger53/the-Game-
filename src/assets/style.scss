@@ -27,13 +27,24 @@ body {
 
 .playername {
   position: absolute;
-  bottom: 16rem;
-  left: 32rem;
+  top: 11rem;
+  left: 7rem;
   outline: none;
-  border: none;
   padding: 0.8rem 1rem;
   border-radius: 5px;
-  background: #363636;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+
+.playerbtn {
+  position: absolute;
+  top: 14.5rem;
+  left: 10.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: transparent;
   font-size: 1.2rem;
   color: aliceblue;
 }

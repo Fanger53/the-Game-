@@ -1,4 +1,4 @@
-import api from './score';
+
 import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';
@@ -10,6 +10,8 @@ import sprBtnRestartHover from '../assets/img/sprBtnRestartHover.png';
 import sprBtnRestartDown from '../assets/img/sprBtnRestartDown.png';
 import sndBtnOver from '../assets/sounds/sndBtnOver.wav';
 import sndBtnDown from '../assets/sounds/sndBtnDown.wav';
+
+const name = 'leo';
 
 export default class SceneStart extends Phaser.Scene {
   constructor() {
@@ -31,7 +33,6 @@ export default class SceneStart extends Phaser.Scene {
   }
 
   create() {
-    
 
     this.sfx = {
       btnOver: this.sound.add("sndBtnOver"),
@@ -93,10 +94,10 @@ export default class SceneStart extends Phaser.Scene {
       this.backgrounds.push(bg);
     }
 
-    const playerNameInput = document.querySelector('#playerName');
-    playerNameInput.classList.add('hide');
 
   }
 
 
 }
+
+export {name};

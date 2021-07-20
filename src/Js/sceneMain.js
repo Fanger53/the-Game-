@@ -281,3 +281,5 @@ this.load.audio('sndLaser', sndLaser);
 
 
 }
+
+export { score };

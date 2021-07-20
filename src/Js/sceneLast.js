@@ -1,3 +1,6 @@
+import {score} from './sceneMain';
+import {name} from './sceneStart';
+import {SubmitScore} from './post';
 import sndBtnOver from '../assets/sounds/sndBtnOver.wav';
 import sndBtnDown from '../assets/sounds/sndBtnDown.wav';
 import sprBtnRestart from '../assets/img/sprBtnRestart.png';
@@ -17,7 +20,12 @@ export default class SceneLast extends Phaser.Scene {
   }
 
   create() {
-    this.title = this.add.text(this.game.config.width * 0.5, 128, "GAME OVER", {
+    this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.W);
+    this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.S);
+    this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.A);
+    this.input.keyboard.removeCapture(Phaser.Input.Keyboard.KeyCodes.D);
+
+    this.title = this.add.text(this.game.config.width * 0.5, 90, "GAME OVER", {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
@@ -26,10 +34,49 @@ export default class SceneLast extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
 
+    // name input
+    const playerName = document.getElementById('playerName');
+    playerName.classList.remove('hide');
+    const btn = document.getElementById('btn');
+    btn.classList.remove('hide');
+    
+    // const name = () =>{
+    //   const nameValue = playerName.value;
+    //   return nameValue;
+    // }
+    // btn.onclick = () => (name, score);
+
+    btn.onclick = () =>  SubmitScore.send('leo', 700).then(this.scene.start('SceneScore'));
+
+    console.log(SubmitScore.send(name, score));
+
+    this.score = this.add.text(this.game.config.width * 0.5, 105, ' ', {
+      fontFamily: 'monospace',
+      fontSize: 30,
+      fontStyle: 'bold',
+      color: '#ffffff',
+      align: 'center',
+    });
+
+    this.score.setOrigin(0.5, -1);
+    this.score.setText(`SCORE: ${score}`);
+
+
     this.sfx = {
       btnOver: this.sound.add("sndBtnOver"),
       btnDown: this.sound.add("sndBtnDown")
     };
+
+    this.subtitle = this.add.text(this.game.config.width * 0.29, 410, "Score Board", {
+      fontFamily: 'monospace',
+      fontSize: 35,
+      fontStyle: 'bold',
+      color: '#670D52',
+      align: 'center'
+    }).setInteractive({ useHandCursor: true })
+    .on('pointerdown', () => {
+      this.scene.start('SceneScore');
+    });
 
     this.btnRestart = this.add.sprite(
       this.game.config.width * 0.5,
@@ -55,20 +102,10 @@ export default class SceneLast extends Phaser.Scene {
 
     this.btnRestart.on("pointerup", function() {
       this.btnRestart.setTexture("sprBtnRestart");
-      this.scene.start("SceneMain");
+      this.scene.start(window.location.reload());
     }, this);
 
-    this.subtitle = this.add.text(this.game.config.width * 0.29, 320, "Score Board", {
-      fontFamily: 'monospace',
-      fontSize: 35,
-      fontStyle: 'bold',
-      color: '#670D52',
-      align: 'center'
-    }).setInteractive({ useHandCursor: true })
-    .on('pointerdown', () => {
-      this.scene.start('SceneScore');
-    });
-
+    this.btnRestart.setOrigin(0.5, -1);
     
   }
 }
