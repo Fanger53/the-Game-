@@ -25,16 +25,20 @@
 the game consist in a spaceship that fight with enemy ships, each enemy ship has a score that u can see in the score board, was created usisn Html, Scss, javascript and webpack.
 
 
-<img width="866" alt="todolist" src="https://user-images.githubusercontent.com/31552010/117403443-cadde300-aecd-11eb-913b-76b62b15b4cc.png">
+<img width="362" alt="spacewars" src="https://user-images.githubusercontent.com/31552010/126503079-ca798f35-ddec-47ea-9cb3-5fef5d4b8a63.png">
 
+## How To Play
 
+- Use A, S, D, W to move
+- Use Spacebar to fire
+- Destroy enemies to gain score
 
 <hr>
 
 
 ## 🔴 Live Demo:
 
-[TodoList](https://raw.githack.com/Fanger53/toDo-List/development/dist/index.html)
+[Live Demo](https://raw.githack.com/Fanger53/the-Game-/game/dist/index.html)
 
 ## 🔧 Built with
 
@@ -43,6 +47,7 @@ the game consist in a spaceship that fight with enemy ships, each enemy ship has
 - Web Pack 
 - Linters
 - VS code
+- Phaser 3
 
 
 
@@ -52,17 +57,17 @@ the game consist in a spaceship that fight with enemy ships, each enemy ship has
 To get a local copy up and running follow these simple steps:
 
 1. Open your terminal and cd where you want to store the project
-2. Run the following command - git clone https://github.com/Fanger53/toDo-List.git
-3. Cd into the directory - cd toDo-List
+2. Run the following command - git clone git@github.com:Fanger53/the-Game-.git
+3. Cd into the directory - cd the-Game-
 4. run "npm install"
 5. Open the live server on your VScode
 
 ## :mechanical_arm: How to run the tests
-Open your terminal and cd into the directory - cd To-do-list$
+Open your terminal and cd into the directory - cd the-Game- $
 Run the following command - npm test
 
 
-## 👥 Authors
+## 👥 Author
 
 👤 **David Leonardo Castillo R**
 
