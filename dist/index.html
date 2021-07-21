@@ -7,9 +7,16 @@
   <title>shooter</title>
 </head>
 <body>
-    <div class=" border" id="board-game">
+    <div class="flex">
+      <div class=" border" id="board-game">
+      </div>
+      <div class="instructions border rounded color">
+        <p class="pad font-w font-s border rounded">Instructions</p>
+        <p class="pad font-w border rounded m-t">Use A, S, D, W to move</p>
+        <p class="pad font-w border rounded m-t">Use Spacebar to fire</p>
+        <p class="pad font-w border rounded m-t">Destroy Enemies to gain score</p>
+      </div>
     </div>
-    
       <input type="text" name="player-name" class="playername hide" id="playerName" placeholder="Enter your name" data-name >
       <button class="playerbtn hide " id="btn">Submit Score</button>
     

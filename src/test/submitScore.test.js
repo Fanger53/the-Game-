@@ -1,7 +1,7 @@
 import { SubmitScore } from '../Js/post';
 
 global.fetch = jest.fn(() => Promise.resolve({
-  json: () => Promise.resolve({ scores: { user: 'stanley', score: 17 } }),
+  json: () => Promise.resolve({ scores: { user: 'Leo', score: 100 } }),
 }));
 
 beforeAll(() => {

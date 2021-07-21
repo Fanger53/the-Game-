@@ -9,12 +9,36 @@ body {
 }
 
 .border {
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .flex {
   display: flex;
   width: 100vw;
+}
+
+.pad {
+  padding: 1rem;
+}
+
+.m-t {
+  margin-top: 1rem;
+}
+
+.rounded {
+  border-radius: 15px;
+}
+
+.font-w {
+  font-weight: 700;
+}
+
+.font-s {
+  font-size: 2rem;
+}
+
+.color {
+  color: rgba(253, 253, 253, 0.973);
 }
 
 .results {
@@ -47,4 +71,9 @@ body {
 
 .hide {
   display: none;
+}
+
+.instructions {
+  padding: 1rem;
+  background-color: rgb(48, 59, 116);
 }
