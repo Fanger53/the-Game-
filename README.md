@@ -33,6 +33,10 @@ the game consist in a spaceship that fight with enemy ships, each enemy ship has
 
 <hr>
 
+## Video
+
+[Video](https://www.loom.com/share/77c3d67401184d8abdf72b7ab7b9787b)
+
 
 ## 🔴 Live Demo:
 
