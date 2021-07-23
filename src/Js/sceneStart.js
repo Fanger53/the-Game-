@@ -1,3 +1,4 @@
+/* eslint import/no-unresolved: 2 */
 import Phaser from 'phaser';
 import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';

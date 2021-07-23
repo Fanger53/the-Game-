@@ -1,3 +1,4 @@
+/* eslint import/no-unresolved: 2 */
 import Phaser from 'phaser';
 import '../assets/style.scss';
 import SceneStart from './sceneStart';
