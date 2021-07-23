@@ -1,10 +1,9 @@
+import Phaser from 'phaser';
 import '../assets/style.scss';
 import SceneStart from './sceneStart';
 import SceneMain from './sceneMain';
 import SceneLast from './sceneLast';
 import SceneScore from './sceneScore';
-
-const Phaser = require('phaser');
 
 const config = {
   type: Phaser.AUTO,
