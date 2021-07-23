@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+import Phaser from 'phaser';
 import Entity from './entities';
 
 export default class CarrierShip extends Entity {

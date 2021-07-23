@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable vars-on-top */
+import Phaser from 'phaser';
 import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';
@@ -85,8 +84,7 @@ export default class SceneStart extends Phaser.Scene {
     this.title2.setOrigin(0.5);
 
     this.backgrounds = [];
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i += 1) {
       const keys = ['sprBg0', 'sprBg1'];
       const key = keys[Phaser.Math.Between(0, keys.length - 1)];
       const bg = new ScrollingBackground(this, key, i * 10);

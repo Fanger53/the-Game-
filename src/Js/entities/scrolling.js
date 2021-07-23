@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-plusplus */
+import Phaser from 'phaser';
 
 export default class ScrollingBackground {
   constructor(scene, key, velocityY) {
@@ -13,7 +12,7 @@ export default class ScrollingBackground {
   }
 
   createLayers() {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 2; i += 1) {
       // creating two backgrounds will allow a continuous
       // flow giving the illusion that they are moving.
       const layer = this.scene.add.sprite(0, 0, this.key);
