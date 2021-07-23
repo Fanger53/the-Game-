@@ -3,7 +3,7 @@
 <p align="center">
   
   <br>
-   Space Wars its a Javascript game that use library for create the game, the game consist in a spaceship that fight with enemy ships, each enemy ship has a score that u can see in the score board, this is posible using an Api, this project use ECMAscript 6, an Api for the get and post requests 
+    Space Wars is a Javascript game that uses the library Phaser to create the game,  the game consists of a spaceship that fights with enemy ships, each enemy ship has a score that you can see on the scoreboard, this is possible using an API, this project uses ECMAScript 6, an API for the get and post requests
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 
 ## 👩🏼‍💻 About the game space wars
 
-the game consist in a spaceship that fight with enemy ships, each enemy ship has a score that u can see in the score board, was created usisn Html, Scss, javascript and webpack.
+the game consists of a spaceship that fights with enemy ships, each enemy ship has a score that u can see on the scoreboard, it was created using Html, Scss, javascript and webpack.
 
 
 <img width="362" alt="spacewars" src="https://user-images.githubusercontent.com/31552010/126503079-ca798f35-ddec-47ea-9cb3-5fef5d4b8a63.png">
@@ -61,7 +61,7 @@ To get a local copy up and running follow these simple steps:
 1. Open your terminal and cd where you want to store the project
 2. Run the following command - git clone git@github.com:Fanger53/the-Game-.git
 3. Cd into the directory - cd the-Game-
-4. run "npm install"
+4. run "npm install", to install NPM packages
 5. Open the live server on your VScode
 
 ## :mechanical_arm: How to run the tests
