@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-plusplus */
-/* eslint-disable vars-on-top */
+import Phaser from 'phaser';
 import Player from './entities/player';
 import ChaserShip from './entities/enemy1';
 import CarrierShip from './entities/enemy3';
@@ -64,7 +62,7 @@ export default class SceneMain extends Phaser.Scene {
     };
 
     this.backgrounds = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i += 1) {
       const bg = new ScrollingBackground(this, 'sprBg0', i * 10);
       this.backgrounds.push(bg);
     }
@@ -199,7 +197,7 @@ export default class SceneMain extends Phaser.Scene {
         this.player.setData('isShooting', false);
       }
     }
-    for (let i = 0; i < this.enemies.getChildren().length; i++) {
+    for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
 
       if (enemy.x < -enemy.displayWidth
@@ -217,7 +215,7 @@ export default class SceneMain extends Phaser.Scene {
       enemy.update();
     }
 
-    for (let i = 0; i < this.enemyLasers.getChildren().length; i++) {
+    for (let i = 0; i < this.enemyLasers.getChildren().length; i += 1) {
       const laser = this.enemyLasers.getChildren()[i];
       laser.update();
 
@@ -231,7 +229,7 @@ export default class SceneMain extends Phaser.Scene {
       }
     }
 
-    for (let i = 0; i < this.playerLasers.getChildren().length; i++) {
+    for (let i = 0; i < this.playerLasers.getChildren().length; i += 1) {
       const laser = this.playerLasers.getChildren()[i];
       laser.update();
 
@@ -248,7 +246,7 @@ export default class SceneMain extends Phaser.Scene {
 
   getEnemiesByType(type) {
     const arr = [];
-    for (let i = 0; i < this.enemies.getChildren().length; i++) {
+    for (let i = 0; i < this.enemies.getChildren().length; i += 1) {
       const enemy = this.enemies.getChildren()[i];
       if (enemy.getData('type') === type) {
         arr.push(enemy);
