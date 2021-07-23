@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+/* eslint-disable no-undef */
 import ScrollingBackground from './entities/scrolling';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';

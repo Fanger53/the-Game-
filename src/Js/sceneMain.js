@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+/* eslint-disable no-undef */
 import Player from './entities/player';
 import ChaserShip from './entities/enemy1';
 import CarrierShip from './entities/enemy3';

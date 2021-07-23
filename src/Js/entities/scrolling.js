@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+/* eslint-disable no-undef */
 
 export default class ScrollingBackground {
   constructor(scene, key, velocityY) {
