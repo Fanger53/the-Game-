@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import '../assets/style.scss';
 import Phaser from 'phaser';
 import SceneStart from './sceneStart';
