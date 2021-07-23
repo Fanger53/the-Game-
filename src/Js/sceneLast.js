@@ -1,4 +1,3 @@
-/* eslint import/no-unresolved: 2 */
 import Phaser from 'phaser';
 import { score } from './sceneMain';
 import { SubmitScore } from './post';

@@ -1,4 +1,3 @@
-/* eslint import/no-unresolved: 2 */
 import Phaser from 'phaser';
 import { GetScore } from './get';
 

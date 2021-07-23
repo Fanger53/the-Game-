@@ -1,5 +1,4 @@
 /* eslint-disable max-classes-per-file */
-/* eslint import/no-unresolved: 2 */
 import Phaser from 'phaser';
 import Entity from './entities';
 

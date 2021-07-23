@@ -1,4 +1,3 @@
-/* eslint import/no-unresolved: 2 */
 import Phaser from 'phaser';
 import Player from './entities/player';
 import ChaserShip from './entities/enemy1';
