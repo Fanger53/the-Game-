@@ -25,7 +25,17 @@ the game consists of a spaceship that fights with enemy ships, each enemy ship h
 
 <img width="362" alt="spacewars" src="https://user-images.githubusercontent.com/31552010/126503079-ca798f35-ddec-47ea-9cb3-5fef5d4b8a63.png">
 
-## How To Play
+## Game Design
+
+### Introduction 
+
+I was requested to build a shooter game, the game consists on shoot enemy spaceships that give you a score for each spaceship destroy, the objective is to have the top score of the game.
+
+## Story and Gameplay
+
+You are the commander of a spaceShip from the earth, you are the last defense that has the earth before the enemies of humanity destroy it, under your command the earth will be saved. destroy them all.
+
+## Controls
 
 - Use A, S, D, W to move
 - Use Spacebar to fire
@@ -62,7 +72,8 @@ To get a local copy up and running follow these simple steps:
 2. Run the following command - git clone git@github.com:Fanger53/the-Game-.git
 3. Cd into the directory - cd the-Game-
 4. run "npm install", to install NPM packages
-5. Open the live server on your VScode
+5. Then run, npm run build
+6. Open the live server on your VScode
 
 ## :mechanical_arm: How to run the tests
 Open your terminal and cd into the directory - cd the-Game- $
