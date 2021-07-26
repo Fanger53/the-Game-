@@ -7,11 +7,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Fanger53/toDo-List/issues">
+  <a href="https://github.com/Fanger53/the-Game-/issues">
     <img src="https://img.shields.io/badge/REPORT%20A%20BUG-purple?style=for-the-badge">
   </a>
    ‎ ‎ ‎ ‎
-  <a href="https://github.com/Fanger53/toDo-List">
+  <a href="https://github.com/Fanger53/the-Game-">
     <img src="https://img.shields.io/badge/Request%20a%20feature-purple?style=for-the-badge">
   </a>
 </p>
