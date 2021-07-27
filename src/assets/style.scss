@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100%;
+}
+
+.border {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.flex {
+  display: flex;
+  width: 100vw;
+}
+
+.pad {
+  padding: 1rem;
+}
+
+.m-t {
+  margin-top: 1rem;
+}
+
+.rounded {
+  border-radius: 15px;
+}
+
+.font-w {
+  font-weight: 700;
+}
+
+.font-s {
+  font-size: 2rem;
+}
+
+.color {
+  color: rgba(253, 253, 253, 0.973);
+}
+
+.results {
+  width: 500px;
+}
+
+.playername {
+  position: absolute;
+  top: 11rem;
+  left: 7rem;
+  outline: none;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+
+.playerbtn {
+  position: absolute;
+  top: 14.5rem;
+  left: 10.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: aliceblue;
+}
+
+.hide {
+  display: none;
+}
+
+.instructions {
+  padding: 1rem;
+  background-color: rgb(48, 59, 116);
+}
